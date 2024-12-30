@@ -1,0 +1,24 @@
+name: benchmark-llm
+channels:
+  - conda-forge
+  - nvidia
+  - pytorch
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - transformers==4.33.0
+    - accelerate
+    - openai==0.27.8
+    - dash
+    - dash_bootstrap_components
+    - python-dotenv
+    - ctransformers
+    - llm
+    - llm-gpt4all
+    - llama-cpp-python
+    - seaborn
+    - matplotlib
+    - pandas
+    - huggingface_hub
+    - torch>=2.0
