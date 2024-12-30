@@ -2,6 +2,8 @@
 
 This repository contains code to **benchmark multiple small Large Language Models (LLMs)** for summarizing patient responses to radiotherapy follow-up questionnaires. We compare models such as **Mistral-7B Instruct**, **BioMistral-7B**, **LLaMA-2-7B-Chat**, **Gemma-7B Instruct**, and **GPT-4** (as a reference).
 
+This repository is the official code for the paper [Benchmarking LLMs and SLMs for patient reported outcomes](https://arxiv.org/abs/2412.16291) written by Matteo MARENGO, Jarod LEVY and Jean-Emmanuel BIBAULT.
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Repository Structure](#repository-structure)
