@@ -88,56 +88,56 @@ benchmark-small-models/
         ├── prompt/
         ├── output/
         └── figures/
+```
 
-Installation
+## Installation
 
 We recommend using either conda or pip to set up the environment.
-1. Conda Installation
 
-    Clone the repository:
+### 1. Conda Installation
+#### 1. Clone the repository:
 
 git clone https://github.com/YourUsername/benchmark-small-models.git
 cd benchmark-small-models
 
-Create and activate the conda environment:
+#### 2. Create and activate the conda environment:
 
 conda env create -f environment.yml
 conda activate benchmark-llm
 
-Verify the installation:
+#### 3. Verify the installation:
 
-    python --version
-    python -m pip list
+python --version
+python -m pip list
 
-2. Pip Installation
+### 2. Pip Installation
 
-    Clone the repository:
+#### 1. Clone the repository:
 
 git clone https://github.com/YourUsername/benchmark-small-models.git
 cd benchmark-small-models
 
-Install dependencies via pip:
+#### 2. Install dependencies via pip:
 
 pip install -r requirements.txt
 
-Verify the installation:
+#### 3. Verify the installation:
 
     python --version
     python -m pip list
 
-Usage
-Environment Variables
-
-    Copy .env.example to .env:
+## Usage
+### Environment Variables
+#### 1. Copy .env.example to .env:
 
 cp .env.example .env
 
-Edit .env to include your tokens:
+#### 2. Edit .env to include your tokens:
 
     HUGGINGFACE_TOKEN=hf_XXXX
     OPENAI_API_KEY=sk-XXXX
 
-Running Benchmarks
+### Running Benchmarks
 
 Each benchmark script is under src/benchmarks/. For example, to run Mistral-7B Instruct:
 
@@ -145,68 +145,66 @@ python src/benchmarks/benchmark_mistral7b_instruct.py
 
 Likewise, for other models:
 
-    benchmark_biomistral7b.py
-    benchmark_llama2_7b_chat.py
-    benchmark_gemma7b_instruct.py
-    benchmark_gpt4.py (requires valid OpenAI API key)
+- benchmark_biomistral7b.py
+- benchmark_llama2_7b_chat.py
+- benchmark_gemma7b_instruct.py
+- benchmark_gpt4.py (requires valid OpenAI API key)
 
 Each script will:
 
-    Generate X random prompts and associated patient responses.
-    Summarize them using the respective model.
-    Compute and log metrics: coverage (custom metric), recall, Kappa, GPT-based scoring.
-    Save outputs in saved_files/.
+  - Generate X random prompts and associated patient responses.
+  - Summarize them using the respective model.
+  - Compute and log metrics: coverage (custom metric), recall, Kappa, GPT-based scoring.
+  - Save outputs in saved_files/.
 
-Details of the Scripts
-Utility Modules
+## Details of the Scripts
+### Utility Modules
 
-    src/utils/scoring_utils.py
-    Maps text answers (e.g., "Mild", "Severe") to numeric values and processes raw Q&A answers.
+- src/utils/scoring_utils.py
+  Maps text answers (e.g., "Mild", "Severe") to numeric values and processes raw Q&A answers.
 
-    src/utils/prompt_utils.py
-    Generates random question/answer sets for the radiotherapy questionnaire.
+- src/utils/prompt_utils.py
+  Generates random question/answer sets for the radiotherapy questionnaire.
 
-    src/utils/evaluation_utils.py
-        compute_metric(): Measures how many major symptoms appear in the summary.
-        kappa_cohen_index(): Calculates Cohen’s Kappa.
-        recall(): Measures coverage of relevant symptoms.
-        LLM_evaluator(): Calls GPT-4 to obtain a 0–1 score.
+- src/utils/evaluation_utils.py
+  - compute_metric(): Measures how many major symptoms appear in the summary.
+  - kappa_cohen_index(): Calculates Cohen’s Kappa.
+  - recall(): Measures coverage of relevant symptoms.
+  - LLM_evaluator(): Calls GPT-4 to obtain a 0–1 score.
 
-    src/utils/plotting_utils.py
+- src/utils/plotting_utils.py
     Creates and saves plots of the four metrics (score, kappa, recall, LLM-based grade).
 
-Benchmark Scripts
+### Benchmark Scripts
 
 Under src/benchmarks/, each file:
 
-    Imports the target model from Hugging Face or OpenAI.
-    Loops over X prompts, calls the model, and scores the output.
-    Saves results (CSV, text, plots) into its dedicated folder in saved_files/.
+  1. Imports the target model from Hugging Face or OpenAI.
+  2. Loops over X prompts, calls the model, and scores the output.
+  3. Saves results (CSV, text, plots) into its dedicated folder in saved_files/.
 
-Hugging Face and OpenAI Tokens
+## Hugging Face and OpenAI Tokens
 
-    Store your Hugging Face token in .env if your model is private or large.
-    For GPT-4 usage, you must provide a valid OPENAI_API_KEY.
+  - Store your Hugging Face token in .env if your model is private or large.
+  - For GPT-4 usage, you must provide a valid OPENAI_API_KEY.
 
-Results
+## Results
 
 Each run produces:
 
-    A CSV file (benchmark.csv) with columns:
-        Prompt number
-        Grade Score (our custom coverage)
-        Kappa Score
-        Recall Score
-        LLM Based Score
-    prompt_ files in /prompt/
-    output_ files in /output/
-    figures (.png files) showing metric evolutions over multiple prompts.
+A CSV file (benchmark.csv) with columns:
+- Prompt number
+- Grade Score (our custom coverage)
+- Kappa Score
+- Recall Score
+- LLM Based Score
 
-License
+- prompt_ files in /prompt/
+- output_ files in /output/
+- figures (.png files) showing metric evolutions over multiple prompts.
 
-(Optional)
-We recommend placing an MIT License or other license in a file named LICENSE.
-Citation
+
+## Citation
 
 If you use this repository for research, please cite or reference it. For example:
 
