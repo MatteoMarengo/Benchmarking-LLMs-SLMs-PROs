@@ -2,6 +2,7 @@
 benchmark_gpt4.py
 
 Benchmarks the GPT-4 model (OpenAI) for the radiotherapy summarization task.
+
 """
 
 import os
