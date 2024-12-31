@@ -98,52 +98,59 @@ We recommend using either conda or pip to set up the environment.
 
 ### 1. Conda Installation
 #### 1. Clone the repository:
-
+```bash
 git clone https://github.com/YourUsername/benchmark-small-models.git
 cd benchmark-small-models
-
+```
 #### 2. Create and activate the conda environment:
-
+```bash
 conda env create -f environment.yml
 conda activate benchmark-llm
-
+```
 #### 3. Verify the installation:
-
+```bash
 python --version
 python -m pip list
+```
 
 ### 2. Pip Installation
 
 #### 1. Clone the repository:
-
+```bash
 git clone https://github.com/YourUsername/benchmark-small-models.git
 cd benchmark-small-models
+```
 
 #### 2. Install dependencies via pip:
-
+```bash
 pip install -r requirements.txt
+```
 
 #### 3. Verify the installation:
-
-    python --version
-    python -m pip list
+```bash
+python --version
+python -m pip list
+```
 
 ## Usage
 ### Environment Variables
 #### 1. Copy .env.example to .env:
-
+```bash
 cp .env.example .env
+```
 
 #### 2. Edit .env to include your tokens:
-
-    HUGGINGFACE_TOKEN=hf_XXXX
-    OPENAI_API_KEY=sk-XXXX
+```bash
+HUGGINGFACE_TOKEN=hf_XXXX
+OPENAI_API_KEY=sk-XXXX
+```
 
 ### Running Benchmarks
 
 Each benchmark script is under src/benchmarks/. For example, to run Mistral-7B Instruct:
-
+```bash
 python src/benchmarks/benchmark_mistral7b_instruct.py
+```
 
 Likewise, for other models:
 
@@ -208,11 +215,16 @@ A CSV file (benchmark.csv) with columns:
 
 ## Citation
 
-If you use this repository for research, please cite or reference it. For example:
+If you use this repository for research, please cite or reference it by citing the associated paper:
 
-@misc{YourName2024Benchmark,
-  author = {Your Name},
-  title = {Benchmarking Small Language Models for Radiotherapy Follow-Up},
-  howpublished = {\url{https://github.com/YourUsername/benchmark-small-models}},
-  year = {2024}
+```bibtex
+@misc{marengo2024benchmarkingllmsslmspatient,
+  title        = {Benchmarking LLMs and SLMs for patient reported outcomes},
+  author       = {Matteo Marengo and Jarod Lévy and Jean-Emmanuel Bibault},
+  year         = {2024},
+  eprint       = {2412.16291},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  url          = {https://arxiv.org/abs/2412.16291},
 }
+
