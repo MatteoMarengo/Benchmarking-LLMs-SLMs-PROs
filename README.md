@@ -66,8 +66,6 @@ benchmark-small-models/
 │       ├── benchmark_gemma7b_instruct.py
 │       └── benchmark_gpt4.py
 │
-├── notebooks/                # (Optional) Jupyter notebooks
-│   └── exploration.ipynb
 │
 └── saved_files/
     ├── Benchmark_MISTRAL7B_INSTRUCT/
